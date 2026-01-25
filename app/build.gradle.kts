@@ -67,7 +67,7 @@ application {
 }
 
 jacoco {
-    toolVersion = "0.8.9"
+    toolVersion = "0.8.14"
 }
 
 tasks.test {
