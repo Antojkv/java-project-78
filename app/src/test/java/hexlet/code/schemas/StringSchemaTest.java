@@ -51,7 +51,8 @@ public class StringSchemaTest {
     public void testAllParameters() {
         Validator v = new Validator();
         StringSchema schema = v.string();
-        schema.required().minLength(4).contains("world");
+        schema.required();
+        schema.minLength(4).contains("world");
 
         assertFalse(schema.isValid("hello"));
         assertTrue(schema.isValid("hello world"));
