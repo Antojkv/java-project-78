@@ -15,11 +15,12 @@ public abstract class BaseSchema<T> {
     protected abstract boolean checkRules(T value);
 
     public boolean isValid(T value) {
-        if (isRequired && value == null) {
-            return false;
-        }
+
         if (!isRequired && value == null) {
             return true;
+        }
+        if (isRequired && value == null) {
+            return false;
         }
         return checkRules(value);
     }
