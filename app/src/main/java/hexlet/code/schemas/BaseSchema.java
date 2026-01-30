@@ -8,7 +8,7 @@ public abstract class BaseSchema<T> {
         return this;
     }
 
-    public boolean isValid(T value) {
+    public final boolean isValid(T value) {
         if (required && value == null) {
             return false;
         }
