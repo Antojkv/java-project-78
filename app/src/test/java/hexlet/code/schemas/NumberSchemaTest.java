@@ -42,8 +42,7 @@ public class NumberSchemaTest {
     public void testAllParameters() {
         Validator v = new Validator();
         NumberSchema schema = v.number();
-        schema.required();
-        schema.positive().range(11, 13);
+        schema.positive().range(11, 13).required();
 
         assertTrue(schema.isValid(12));
     }
