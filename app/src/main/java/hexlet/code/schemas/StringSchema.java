@@ -6,7 +6,7 @@ public final class StringSchema extends BaseSchema<String> {
 
     @Override
     public StringSchema required() {
-        super.required();
+        setRequired(true);
         return this;
     }
 

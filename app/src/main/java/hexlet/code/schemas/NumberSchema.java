@@ -7,7 +7,7 @@ public final class NumberSchema extends BaseSchema<Integer> {
 
     @Override
     public NumberSchema required() {
-        super.required();
+        setRequired(true);
         return this;
     }
 
