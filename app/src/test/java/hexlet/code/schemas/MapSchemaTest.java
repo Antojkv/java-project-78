@@ -21,8 +21,7 @@ public class MapSchemaTest {
     @Test
     public void testWithRequired() {
         Validator v = new Validator();
-        MapSchema schema = v.map();
-        schema.required();
+        MapSchema schema = v.map().required();
 
         assertFalse(schema.isValid(null));
         assertTrue(schema.isValid(new HashMap<>()));
@@ -34,8 +33,7 @@ public class MapSchemaTest {
     @Test
     public void testSizeof() {
         Validator v = new Validator();
-        MapSchema schema = v.map().sizeof(2);
-        schema.required();
+        MapSchema schema = v.map().required().sizeof(2);
 
         Map<String, String> data = new HashMap<>();
         data.put("key", "value");
@@ -48,14 +46,9 @@ public class MapSchemaTest {
         MapSchema schema = v.map();
         Map<String, BaseSchema> schemas = new HashMap<>();
 
-        StringSchema firstNameSchema = v.string();
-        firstNameSchema.required();
-        schemas.put("firstName", firstNameSchema);
+        schemas.put("firstName", v.string().required());
 
-        StringSchema lastNameSchema = v.string().minLength(2);
-        lastNameSchema.required();
-
-        schemas.put("lastName", lastNameSchema);
+        schemas.put("lastName", v.string().required().minLength(2));
 
         schema.shape(schemas);
 

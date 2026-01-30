@@ -5,8 +5,10 @@ public class NumberSchema extends BaseSchema<Integer> {
     private Integer rangeMin = null;
     private Integer rangeMax = null;
 
-    public NumberSchema() {
-        super();
+    @Override
+    public NumberSchema required() {
+        super.required();
+        return this;
     }
 
     public NumberSchema positive() {

@@ -20,8 +20,7 @@ public class StringSchemaTest {
     @Test
     public void testWithRequired() {
         Validator v = new Validator();
-        StringSchema schema = v.string();
-        schema.required();
+        StringSchema schema = v.string().required();
 
         assertFalse(schema.isValid(null));
         assertFalse(schema.isValid(""));
@@ -48,8 +47,7 @@ public class StringSchemaTest {
     @Test
     public void testAllParameters() {
         Validator v = new Validator();
-        StringSchema schema = v.string().minLength(4).contains("world");
-        schema.required();
+        StringSchema schema = v.string().required().minLength(4).contains("world");
 
         assertFalse(schema.isValid("hello"));
         assertTrue(schema.isValid("hello world"));

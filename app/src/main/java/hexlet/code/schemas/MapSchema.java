@@ -3,15 +3,17 @@ package hexlet.code.schemas;
 import java.util.Map;
 
 public class MapSchema extends BaseSchema<Map<?, ?>> {
-    private Integer size = null;
+    private Integer sizeMap = null;
     private Map<String, BaseSchema> shapeSchemas = null;
 
-    public MapSchema() {
-        super();
+    @Override
+    public MapSchema required() {
+        super.required();
+        return this;
     }
 
     public MapSchema sizeof(int value) {
-        this.size = value;
+        this.sizeMap = value;
         return this;
     }
 
@@ -22,7 +24,7 @@ public class MapSchema extends BaseSchema<Map<?, ?>> {
 
     @Override
     protected boolean checkRules(Map<?, ?> map) {
-        if (size != null && map.size() != size) {
+        if (sizeMap != null && map.size() != sizeMap) {
             return false;
         }
         if (shapeSchemas != null) {

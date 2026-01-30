@@ -17,8 +17,7 @@ public class NumberSchemaTest {
     @Test
     public void testWithRequired() {
         Validator v = new Validator();
-        NumberSchema schema = v.number();
-        schema.required();
+        NumberSchema schema = v.number().required();
 
         assertFalse(schema.isValid(null));
     }
@@ -39,8 +38,7 @@ public class NumberSchemaTest {
     @Test
     public void testAllParameters() {
         Validator v = new Validator();
-        NumberSchema schema = v.number().positive().range(11, 13);
-        schema.required();
+        NumberSchema schema = v.number().required().positive().range(11, 13);
 
         assertTrue(schema.isValid(12));
     }
