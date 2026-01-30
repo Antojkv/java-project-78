@@ -34,8 +34,8 @@ public class MapSchemaTest {
     @Test
     public void testSizeof() {
         Validator v = new Validator();
-        MapSchema schema = v.map();
-        schema.sizeof(2).required();
+        MapSchema schema = v.map().sizeof(2);
+        schema.required();
 
         Map<String, String> data = new HashMap<>();
         data.put("key", "value");
@@ -48,7 +48,8 @@ public class MapSchemaTest {
         MapSchema schema = v.map();
         Map<String, BaseSchema> schemas = new HashMap<>();
         schemas.put("firstName", v.string().required());
-        schemas.put("lastName", v.string().minLength(2).required());
+        schemas.put("lastName", v.string().required());
+        schemas.put("lastName", v.string().minLength(2));
         schema.shape(schemas);
 
         Map<String, String> human = new HashMap<>();

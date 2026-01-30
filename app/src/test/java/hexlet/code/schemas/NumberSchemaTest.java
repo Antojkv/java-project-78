@@ -25,24 +25,22 @@ public class NumberSchemaTest {
     @Test
     public void testPositive() {
         Validator v = new Validator();
-        NumberSchema schema = v.number();
-        schema.positive();
+        NumberSchema schema = v.number().positive();
 
         assertFalse(schema.isValid(-1));
     }
     @Test
     public void testRange() {
         Validator v = new Validator();
-        NumberSchema schema = v.number();
-        schema.range(10, 20);
+        NumberSchema schema = v.number().range(10, 20);
 
         assertTrue(schema.isValid(15));
     }
     @Test
     public void testAllParameters() {
         Validator v = new Validator();
-        NumberSchema schema = v.number();
-        schema.positive().range(11, 13).required();
+        NumberSchema schema = v.number().positive().range(11, 13);
+        schema.required();
 
         assertTrue(schema.isValid(12));
     }

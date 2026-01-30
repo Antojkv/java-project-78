@@ -30,8 +30,7 @@ public class StringSchemaTest {
     @Test
     public void testMinLength() {
         Validator v = new Validator();
-        StringSchema schema = v.string();
-        schema.minLength(5);
+        StringSchema schema = v.string().minLength(5);
 
         assertFalse(schema.isValid("pig"));
         assertTrue(schema.isValid("hexlet"));
@@ -40,8 +39,7 @@ public class StringSchemaTest {
     @Test
     public void testContain() {
         Validator v = new Validator();
-        StringSchema schema = v.string();
-        schema.contains("world");
+        StringSchema schema = v.string().contains("world");
 
         assertFalse(schema.isValid("hello"));
         assertTrue(schema.isValid("hello world"));
@@ -50,8 +48,8 @@ public class StringSchemaTest {
     @Test
     public void testAllParameters() {
         Validator v = new Validator();
-        StringSchema schema = v.string();
-        schema.minLength(4).contains("world").required();
+        StringSchema schema = v.string().minLength(4).contains("world");
+        schema.required();
 
         assertFalse(schema.isValid("hello"));
         assertTrue(schema.isValid("hello world"));
