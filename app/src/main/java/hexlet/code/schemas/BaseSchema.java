@@ -11,7 +11,7 @@ public abstract class BaseSchema<T> {
         checks.put(name, validate);
     }
 
-    public BaseSchema<T> required() {
+    public final BaseSchema<T> isRequired() {
         addCheck("required", val -> val != null);
         return this;
     }

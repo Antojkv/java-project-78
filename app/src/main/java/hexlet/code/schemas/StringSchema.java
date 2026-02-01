@@ -11,9 +11,8 @@ public final class StringSchema extends BaseSchema<String> {
         return this;
     }
 
-    @Override
     public StringSchema required() {
-        super.required();
+        super.isRequired();
         addCheck("notEmpty", val -> !val.isEmpty());
         return this;
     }

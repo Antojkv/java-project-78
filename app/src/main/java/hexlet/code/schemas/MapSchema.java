@@ -27,9 +27,8 @@ public final class MapSchema extends BaseSchema<Map<?, ?>> {
         return this;
     }
 
-    @Override
     public MapSchema required() {
-        super.required();
+        super.isRequired();
         return this;
     }
 }

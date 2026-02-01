@@ -11,9 +11,8 @@ public final class NumberSchema extends BaseSchema<Integer> {
         return this;
     }
 
-    @Override
     public NumberSchema required() {
-        super.required();
+        super.isRequired();
         return this;
     }
 }
