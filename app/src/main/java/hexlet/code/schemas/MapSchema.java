@@ -6,9 +6,8 @@ public final class MapSchema extends BaseSchema<Map<?, ?>> {
     private Integer sizeMap = null;
     private Map<String, BaseSchema<String>> shapeSchemas = null;
 
-    @Override
     public MapSchema required() {
-        this.required = true;
+        super.isRequired();
         return this;
     }
 

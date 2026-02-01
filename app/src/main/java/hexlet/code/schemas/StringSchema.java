@@ -4,9 +4,8 @@ public final class StringSchema extends BaseSchema<String> {
     private Integer minLength = null;
     private String mustContain = null;
 
-    @Override
     public StringSchema required() {
-        this.required = true;
+        super.isRequired();
         return this;
     }
 
