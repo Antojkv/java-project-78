@@ -8,7 +8,7 @@ public final class MapSchema extends BaseSchema<Map<?, ?>> {
 
     @Override
     public MapSchema required() {
-        setRequired(true);
+        this.required = true;
         return this;
     }
 

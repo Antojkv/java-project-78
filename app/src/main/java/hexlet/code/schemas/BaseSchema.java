@@ -3,12 +3,11 @@ package hexlet.code.schemas;
 public abstract class BaseSchema<T> {
     protected boolean required = false;
 
-    public abstract BaseSchema<T> required();
-
-    protected void setRequired(boolean required) {
-        this.required = required;
+    @Deprecated
+    public BaseSchema<T> required() {
+        this.required = true;
+        return this;
     }
-
     public final boolean isValid(T value) {
         if (required && value == null) {
             return false;
