@@ -1,5 +1,5 @@
 plugins {
-    id("application")
+    id("java")
     id("checkstyle")
     id("com.github.ben-manes.versions") version "0.53.0"
     id("org.sonarqube") version "7.1.0.6387"
@@ -62,8 +62,10 @@ tasks.test {
     }
 }
 
-application {
-    mainClass.set("hexlet.code.App")
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
 }
 
 jacoco {
