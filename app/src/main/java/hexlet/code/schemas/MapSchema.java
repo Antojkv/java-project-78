@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 
 public final class MapSchema extends BaseSchema<Map<?, ?>> {
     public MapSchema sizeof(int size) {
-        addCheck("sizeof", val -> val.size() == size);
+        addCheck("sizeof", val -> val == null || val.size() == size);
         return this;
     }
 
